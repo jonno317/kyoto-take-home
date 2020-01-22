@@ -78,7 +78,6 @@ export default async (fastify, options) => {
     }
   },async (request, reply) => {
     const { to, from } = request.query
-    console.log({ to, from })
     if (!isInteger(to)) throw new Error('MISSING_TO_ID')
     if(!isInteger(from)) throw new Error('MISSING_FROM_ID')
     const query = `

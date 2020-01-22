@@ -33,14 +33,11 @@ export const dgraph = fastifyPlugin(async (fastify, options) => {
 
   const relationships = fromPairs(map(relationship => {
     const [id, connections] = relationship.split(':')
-    // console.log({ id, connections })
     return [parseInt(id), map(connection => {
       const conn = parseInt(connection)
       return { uid: `_:${conn}` }
     })(connections.split(','))]
   })(relationshipFile.split(/\r?\n/)))
-
-  // console.log(relationships)
 
   const people = map(person => {
     const [ id, name ] = person.split(/\t/)
@@ -48,8 +45,6 @@ export const dgraph = fastifyPlugin(async (fastify, options) => {
       uid: `_:${id}`, id, name, connection: relationships[id]
     }
   })(peopleFile.split(/\r?\n/))
-
-  // console.log(people)
 
   const txn = dgraphClient.newTxn()
 
