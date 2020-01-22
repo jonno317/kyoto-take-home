@@ -1,0 +1,26 @@
+{
+  "name": "kyoto-take-home",
+  "version": "1.0.0",
+  "description": "",
+  "main": "src",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon --exec babel-node src/index.js",
+    "build": "rm -rf dist && babel src --out-dir dist",
+    "serve": "node dist"
+  },
+  "author": "Jonathan Allen <jonno317@gmail.com>",
+  "license": "UNLICENSED",
+  "dependencies": {
+    "dgraph-js": "^2.0.2",
+    "fastify": "^2.11.0",
+    "fastify-plugin": "^1.6.0",
+    "grpc": "^1.24.2",
+    "lodash": "^4.17.15"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-preset-env": "^1.7.0",
+    "nodemon": "^2.0.2"
+  }
+}
