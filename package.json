@@ -4,7 +4,8 @@
   "description": "",
   "main": "src",
   "scripts": {
-    "start": "nodemon --exec babel-node src/index.js"
+    "start": "nodemon --exec babel-node src/index.js",
+    "db": "docker run --rm -it -p 8000:8000 -p 8080:8080 -p 9080:9080 dgraph/standalone:latest"
   },
   "author": "Jonathan Allen <jonno317@gmail.com>",
   "license": "UNLICENSED",

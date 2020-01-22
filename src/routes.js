@@ -51,11 +51,11 @@ export default async (fastify, options) => {
   })
 
   // returns array of connected people to user id. takes optional query parameter "degree"
-  // default is equivalent to /connections/:id?degree=1
-  fastify.get('/connections/:id', {
+  // default is equivalent to /user/:id/connections?degree=1
+  fastify.get('/user/:id/connections', {
     schema: {
       querystring: {
-        degree: { type: 'integer' }
+        degree: { type: 'integer', minimum: 1 }
       }
     }
   },async (request, reply) => {
@@ -108,7 +108,7 @@ export default async (fastify, options) => {
   fastify.get('/common/:a/:b', {
     schema: {
       querystring: {
-        degree: { type: 'integer' }
+        degree: { type: 'integer', minimum: 1 }
       }
     }
   }, async (request, reply) => {
@@ -149,7 +149,7 @@ export default async (fastify, options) => {
   fastify.get('/min-max', {
     schema: {
       querystring: {
-        degree: { type: 'integer' }
+        degree: { type: 'integer', minimum: 1 }
       }
     }
   }, async (request, reply) => {
