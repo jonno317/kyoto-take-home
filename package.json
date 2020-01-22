@@ -4,7 +4,6 @@
   "description": "",
   "main": "src",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
     "start": "nodemon --exec babel-node src/index.js"
   },
   "author": "Jonathan Allen <jonno317@gmail.com>",
